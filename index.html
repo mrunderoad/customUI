@@ -12,30 +12,7 @@
   <script type="module" src="file:^JS/nav.js"></script>
   <script type="module" src="file:^JS/locations.js"></script>
   <script src="js/nav.js"></script>
-  <script>
-    //System Locations
-    let AHU1 = "/ord?file:^px/Templates/AHU_1.px"
-    let AHU2 = "/ord?file:^px/Ventilation/AHU-2.px"
-    let FTR = "/ord?file:^px/Templates/Fin_Tube_Radiator.px"
-    let HVU1 = "/ord?file:^px/Templates/HVU_1.px"
-    let EF = "/ord?file:^px/Templates/EF.px"
-    let BLR = "/ord?file:^px/Ventilation/Boiler_1_2.px"
-    let DHW = "/ord?file:^px/Ventilation/DHW-1+2.px"
-    let MZU1_2 = "/ord?file:^px/Ventilation/MZU_1_2.px"
-    let MZU3 = "/ord?file:^px/Ventilation/MZU_3.px"
-    let RTU1 = "/ord?file:^px/Ventilation/RTU-1.px"
-    let RTU2 = "/ord?file:^px/Ventilation/RTU-2.px"
-    let RTU3 = "/ord?file:^px/Ventilation/RTU-3.px"
-
-    //Floor Locations
-    let FloorTwo = "/ord?file:^px/FloorPlans/FloorTwo.px"
-    let FloorOneWing = "/ord?file:^px/FloorPlans/FloorOneWing.px"
-    let FloorOneMiddleTop = "/ord?file:^px/FloorPlans/FloorOneMiddleTop.px"
-    let FloorOneTop = "/ord?file:^px/FloorPlans/FloorOneTop.px"
-    let FloorOneBottomRight = "/ord?file:^px/FloorPlans/FloorOneBottomRight.px"
-    let FloorOneBottomLeft = "/ord?file:^px/FloorPlans/FloorOneBottomLeft.px"
-    let FloorOneBottomCenter = "/ord?file:^px/FloorPlans/FloorOneBottomCenter.px"
-  </script>
+  <script src="js/locations.js"></script>
 </head>
 
 <body>
@@ -67,21 +44,21 @@
       <hr>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Exhaust Fans <b>(EF)</b> <span class="arrow">▶</span>
         <ul class="sidebar-dropdown list-unstyled sub-menu">
-          <li><a class="system" onclick="SetPage(EF)">EF 1</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 2</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 3</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 4</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 5</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 6</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 7</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 8</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 9</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 10</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 11</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 12</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 13</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 14</a></li>
-          <li><a class="system" onclick="SetPage(EF)">EF 15</a></li>
+          <li><a class="system" onclick="SetPage(EF1)">EF 1</a></li>
+          <li><a class="system" onclick="SetPage(EF2)">EF 2</a></li>
+          <li><a class="system" onclick="SetPage(EF3)">EF 3</a></li>
+          <li><a class="system" onclick="SetPage(EF4)">EF 4</a></li>
+          <li><a class="system" onclick="SetPage(EF5)">EF 5</a></li>
+          <li><a class="system" onclick="SetPage(EF6)">EF 6</a></li>
+          <li><a class="system" onclick="SetPage(EF7)">EF 7</a></li>
+          <li><a class="system" onclick="SetPage(EF8)">EF 8</a></li>
+          <li><a class="system" onclick="SetPage(EF9)">EF 9</a></li>
+          <li><a class="system" onclick="SetPage(EF10)">EF 10</a></li>
+          <li><a class="system" onclick="SetPage(EF11)">EF 11</a></li>
+          <li><a class="system" onclick="SetPage(EF12)">EF 12</a></li>
+          <li><a class="system" onclick="SetPage(EF13)">EF 13</a></li>
+          <li><a class="system" onclick="SetPage(EF14)">EF 14</a></li>
+          <li><a class="system" onclick="SetPage(EF15)">EF 15</a></li>
         </ul>
       </li>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Air Handling Units <b>(AHU)</b> <span class="arrow">▶</span>
@@ -92,41 +69,48 @@
       </li>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Multi Zone Units <b>(MZU)</b> <span class="arrow">▶</span>
         <ul class="sidebar-dropdown list-unstyled sub-menu">
-          <li><a class="system" onclick="SetPage(MZU1_2)">MZU 1</a></li>
-          <li><a class="system" onclick="SetPage(MZU1_2)">MZU 2</a></li>
+          <li><a class="system" onclick="SetPage(MZU1)">MZU 1</a></li>
+          <li><a class="system" onclick="SetPage(MZU2)">MZU 2</a></li>
           <li><a class="system" onclick="SetPage(MZU3)">MZU 3</a></li>
         </ul>
       </li>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Fin Tube Radiators <b>(FTR)</b> <span class="arrow">▶</span>
         <ul class="sidebar-dropdown list-unstyled sub-menu">
-          <li><a class="system" onclick="SetPage(FTR)">FTR 1</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 2</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 3</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 4</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 5</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 6</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 7</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 8</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 9</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 10</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 11</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 12</a></li>
-          <li><a class="system" onclick="SetPage(FTR)">FTR 13</a></li>
+          <li><a class="system" onclick="SetPage(FTR1)">FTR 1</a></li>
+          <li><a class="system" onclick="SetPage(FTR2)">FTR 2</a></li>
+          <li><a class="system" onclick="SetPage(FTR3)">FTR 3</a></li>
+          <li><a class="system" onclick="SetPage(FTR4)">FTR 4</a></li>
+          <li><a class="system" onclick="SetPage(FTR5)">FTR 5</a></li>
+          <li><a class="system" onclick="SetPage(FTR6)">FTR 6</a></li>
+          <li><a class="system" onclick="SetPage(FTR7)">FTR 7</a></li>
+          <li><a class="system" onclick="SetPage(FTR8)">FTR 8</a></li>
+          <li><a class="system" onclick="SetPage(FTR9)">FTR 9</a></li>
+          <li><a class="system" onclick="SetPage(FTR10)">FTR 10</a></li>
+          <li><a class="system" onclick="SetPage(FTR11)">FTR 11</a></li>
+          <li><a class="system" onclick="SetPage(FTR12)">FTR 12</a></li>
+          <li><a class="system" onclick="SetPage(FTR13)">FTR 13</a></li>
+          <li><a class="system" onclick="SetPage(FTR14)">FTR 14</a></li>
+          <li><a class="system" onclick="SetPage(FTR15)">FTR 15</a></li>
+          <li><a class="system" onclick="SetPage(FTR16)">FTR 16</a></li>
+          <li><a class="system" onclick="SetPage(FTR17)">FTR 17</a></li>
+          <li><a class="system" onclick="SetPage(FTR18)">FTR 18</a></li>
+          <li><a class="system" onclick="SetPage(FTR19)">FTR 19</a></li>
+          <li><a class="system" onclick="SetPage(FTR20)">FTR 20</a></li>
+          <li><a class="system" onclick="SetPage(FTR21)">FTR 21</a></li>
+          <li><a class="system" onclick="SetPage(FTR22)">FTR 22</a></li>
         </ul>
       </li>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Roof Top Units <b>(RTU)</b> <span class="arrow">▶</span>
         <ul class="sidebar-dropdown list-unstyled sub-menu">
-          <li><a class="system" onclick="SetPage(RTU1)">RTU 1</a></li>
-          <li><a class="system" onclick="SetPage(RTU2)">RTU 2</a></li>
           <li><a class="system" onclick="SetPage(RTU3)">RTU 3</a></li>
         </ul>
       </li>
       <li onclick="toggleArrow(this)" class="has-dropdown group">Boiler Systems <span class="arrow">▶</span>
         <ul class="sidebar-dropdown list-unstyled sub-menu">
-          <li><a class="system" onclick="SetPage(BLR)">Boiler 1</a></li>
-          <li><a class="system" onclick="SetPage(BLR)">Boiler 2</a></li>
-          <li><a class="system" onclick="SetPage(DHW)">DHW 1</a></li>
-          <li><a class="system" onclick="SetPage(DHW)">DHW 2</a></li>
+          <li><a class="system" onclick="SetPage(BLR1)">Boiler 1</a></li>
+          <li><a class="system" onclick="SetPage(BLR2)">Boiler 2</a></li>
+          <li><a class="system" onclick="SetPage(DHW1)">DHW 1</a></li>
+          <li><a class="system" onclick="SetPage(DHW2)">DHW 2</a></li>
         </ul>
       </li>
     </ul>
@@ -153,7 +137,9 @@
       <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
         <div class="ms-3">
           <div class="d-flex align-items-right">
-            <iframe id="myframe" src="/ord?file:^assets/CMSbldg.png"></iframe>
+            <div class="iframe-container">
+              <iframe id="myframe" src="/ord?file:^assets/CMSbldg.png"></iframe>
+            </div>
           </div>
         </div>
       </div>
