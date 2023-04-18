@@ -41,47 +41,6 @@ window.addEventListener('resize', function () {
   }
 })
 
-// dropdown menu in the side nav
-
-var slideNavDropdown = $('.sidebar-dropdown');
-
-$('.sidebar .categories').addEventListener('click', function (event) {
-
-  const item = event.target.closest('.has-dropdown')
-  if (!item) {
-    return
-  }
-
-  const isOpened = item.classList.contains('opened');
-  siblings(item).forEach(sibling => {
-    sibling.classList.remove('opened')
-  })
-
-  if (!isOpened) {
-    item.classList.add('opened');
-
-    const toOpen = find(item, '.sidebar-dropdown')
-    if (toOpen) {
-      toOpen.classList.add('active')
-    }
-
-    siblings(item).forEach(sibling => {
-
-      const toClose = find(sibling, '.sidebar-dropdown')
-      if (toClose) {
-        toClose.classList.remove('active')
-      }
-    })
-  } else {
-    find(item, '.sidebar-dropdown', '.sub-menu').classList.toggle('active')
-  }
-})
-
-$('.sidebar .close-aside').addEventListener('click', function () {
-  $(`#${this.dataset.close}`).classList.add('show-sidebar')
-  wrapper.classList.remove('margin')
-})
-
 // Functions for displaying chosen system
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = ` - ${clickedSystem.textContent}`;
       document.getElementById('systemName').textContent = text;
 
+      // Have to change this for other projects
       const groups = [
         ['EF', 'Exhaust Fans (EF)'],
         ['AHU', 'Air Handling Units (AHU)'],
@@ -143,7 +103,16 @@ function clearDisplay() {
 
 function displayDateTime() {
   let now = new Date();
-  let options = { hour12: true, hour: 'numeric', minute: 'numeric', year: 'numeric', month: 'long', day: 'numeric' };
+
+  let options = { 
+    hour12: true,
+    hour: 'numeric', 
+    minute: 'numeric', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  
   let dateTimeString = now.toLocaleTimeString('en-US', options);
   let text = `${dateTimeString}`;
   document.getElementById('dateTime').textContent = text;
@@ -155,9 +124,7 @@ window.onload = function () {
   displayDateTime();
 };
 
-//Function to toggle arrow next to menu options
-
-function toggleArrow(item) {
+function toggleNavDropdown(item) {
   const subMenu = item.querySelector('.sub-menu');
   const arrow = item.querySelector('.arrow');
 
@@ -180,4 +147,55 @@ function toggleArrow(item) {
       arrow.classList.add('arrow-down');
     }
   });
+
+  const siblings = function (el) {
+    return Array.from(el.parentNode.children).filter(child => child !== el)
+  }
+
+  const slideNavDropdown = $('.sidebar-dropdown');
+  const toggleSidebar = function () {
+    $(`#${this.dataset.close}`).classList.add('show-sidebar');
+    wrapper.classList.remove('margin');
+  }
+
+  const categories = document.querySelector('.sidebar .categories');
+  categories.addEventListener('click', function (event) {
+    const item = event.target.closest('.has-dropdown');
+    if (!item) {
+      return;
+    }
+
+    const isOpened = item.classList.contains('opened');
+    siblings(item).forEach(sibling => {
+      sibling.classList.remove('opened');
+    });
+
+    if (!isOpened) {
+      item.classList.add('opened');
+
+      const toOpen = find(item, '.sidebar-dropdown');
+      if (toOpen) {
+        toOpen.classList.add('active');
+      }
+
+      siblings(item).forEach(sibling => {
+        const toClose = find(sibling, '.sidebar-dropdown');
+        if (toClose) {
+          toClose.classList.remove('active');
+        }
+      });
+    } else {
+      find(item, '.sidebar-dropdown', '.sub-menu').classList.toggle('active');
+    }
+  });
+
+  const closeAside = document.querySelector('.sidebar .close-aside');
+  closeAside.addEventListener('click', toggleSidebar);
 }
+
+window.addEventListener('load', function () {
+  const dropdownItems = document.querySelectorAll('.has-dropdown');
+  dropdownItems.forEach(item => {
+    toggleNavDropdown(item);
+  });
+});
